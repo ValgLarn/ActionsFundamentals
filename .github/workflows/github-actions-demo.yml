@@ -57,8 +57,8 @@ jobs:
     environment: Load-Test
     steps:
       - run: |
-          echo "🧪 Testing..."
-          sleep 15
+          echo "🧪 Load-Testing..."
+          sleep 10
 
 # Production: runs on ubuntu-latest after Test and Load-Test.
 # Deploys to the environment Production onyl if this was selected as the input parameter.
@@ -75,16 +75,16 @@ jobs:
     steps:
       - run: |
           echo "🚀 Step 1 deploying..."
-          sleep 10
+          sleep 5
       - run: |
           echo "🚀 Step 2 deploying..."
-          sleep 10
+          sleep 5
       - run: |
           echo "🚀 Step 3 deploying..."
-          sleep 10
+          sleep 5
       - run: |
           echo "🚀 Step 4 deploying..."
-          sleep 10
+          sleep 5
       - run: |
           echo "🚀 Step 5 deploying..."
-          sleep 10
+          sleep 5
