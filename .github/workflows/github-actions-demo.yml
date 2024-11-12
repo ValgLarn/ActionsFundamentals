@@ -40,12 +40,9 @@ jobs:
   Test:
     runs-on:
       - ubuntu-latest
-    if:
-      - github.event_name == 'workflow_dispatch'
-    needs:
-      - Build
-    environment:
-      - Test
+    if: github.event_name == 'workflow_dispatch'
+    needs: Build
+    environment: Test
     steps:
       - run: echo "🧪 Testing..."
 
@@ -55,12 +52,9 @@ jobs:
   Load-Test:
     runs-on:
       - ubuntu-latest
-    if:
-      - github.event_name == 'workflow_dispatch'
-    needs:
-      - Build
-    environment:
-      - Load-Test
+    if: github.event_name == 'workflow_dispatch'
+    needs: Build
+    environment: Load-Test
     steps:
       - run: |
           echo "🧪 Testing..."
@@ -75,12 +69,9 @@ jobs:
       - ubuntu-latest
     needs: [Test, Load-Test]
     environment:
-      name:
-        - Production
-      url:
-        - https://writeabout.net
-    if:
-      - github.event.inputs.environment == 'Production'
+      name: Production
+      url: https://writeabout.net
+    if: github.event.inputs.environment == 'Production'
     steps:
       - run: |
           echo "🚀 Step 1 deploying..."
